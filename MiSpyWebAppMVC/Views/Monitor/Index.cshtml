@@ -56,7 +56,7 @@ else
     <h2>Have you downloaded the Mi-Spy Logging Application?</h2>
     <p>To start seeing a report of typed events, please download the Logging Application to record events to display</p>
     <br />
-    <a class="btn btn-light" asp-page="/Download">Download</a>
+    <a class="btn btn-light" asp-controller="Home" asp-action="Download">Download</a>
 }
 @{ 
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
