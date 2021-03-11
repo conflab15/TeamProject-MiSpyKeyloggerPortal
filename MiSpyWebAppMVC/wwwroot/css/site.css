@@ -1,0 +1,174 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* Font Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: black !important;
+    background-color: #A9F8FB !important;
+    border-color: #A9F8FB !important;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/*------ Custom CSS Here ------*/
+
+.btn-light {
+    background-color: #A9F8FB;
+    font-size: 20px;
+}
+
+.nav-item {
+    padding: 0px 3px 0px 3px;
+    font-size: 20px;
+}
+
+#indexSideLeft {
+    padding-top: 40px;
+    text-align: left;
+}
+
+#tableHead {
+    background-color: #A9F8FB;
+}
+
+.table-striped > tr:nth-child(odd) {
+    background-color: #A9F8FB !important;
+}
+
+#downloadCentreImg {
+    padding: 15px 10px 10px 20px;
+    margin: 10px;
+}
+
+
+/* Help Page Accordion Styles */
+/*--------------------------------------------------*/
+.card-header {
+    background-color: #A9F8FB !important;
+}
+
+#coloredBullet {
+    font-weight: bolder;
+    color: #A9F8FB;
+    font-size: 30px;
+}
+
+#accordionQuestion {
+    background-color: #A9F8FB !important;
+    font-size: 20px !important;
+    color: black;
+}
+
+#accordionAnswer {
+    font-size: 20px !important;
+    color: black !important;
+}
+
+
+/* Register Button Styles
+-------------------------------------------------- */
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.btn-facebook {
+    padding: 4px;
+    margin-top: 5px;
+    background: #3C5A99 !important;
+    color: #fff !important;
+}
+
+.btn-google {
+    font-family: 'Poppins', sans-serif;
+    padding: 4px;
+    margin-top: 5px;
+    background: #ffffff !important;
+    color: black;
+}
+
+.btn-microsoft {
+    font-family: "Segoe UI";
+    padding: 4px;
+    margin-top: 5px;
+    background: #E6E6E7 !important;
+    color: black;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 25px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    background-color: #A9F8FB;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+    .footer a p {
+        color: white !important;
+    }
