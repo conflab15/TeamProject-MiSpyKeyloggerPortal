@@ -1,5 +1,79 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PaginatedList<MiSpyWebAppMVC.Models.LoggedEvent>
 @{
+    ViewData["Title"] = "Logged Events Report";
 }
+
+<div class="container row p-0 mt-5">
+    <div class="col-10">
+        <h2 class="text-info text-dark font-weight-bold">Logged Event Report for: @User.Identity.Name</h2>
+    </div>
+    <hr />
+    <div class="col-10">
+        <h4>Logged Events are listed below, click on an event title to view the details of the event!</h4>
+    </div>
+    <hr />
+</div>
+<br />
+
+@if (Model.Count > 0)
+{
+    <table class="table table-striped ">
+        <thead>
+            <tr class="table-secondary">
+                <th id="tableHead">
+                    Event
+                </th>
+                <th id="tableHead">
+                    Time
+                </th>
+                <th id="tableHead">
+                    Has Read?
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Event" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Event)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HasRead)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h2>No logged events</h2>
+    <br />
+    <h2>Have you downloaded the Mi-Spy Logging Application?</h2>
+    <p>To start seeing a report of typed events, please download the Logging Application to record events to display</p>
+    <br />
+    <a class="btn btn-light" asp-page="/Download">Download</a>
+}
+@{ 
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-pageNumber="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>

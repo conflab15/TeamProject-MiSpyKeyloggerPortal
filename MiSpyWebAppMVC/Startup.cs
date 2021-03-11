@@ -30,9 +30,6 @@ namespace MiSpyWebAppMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            services.AddRazorPages(options =>
-             options.Conventions.AuthorizeFolder("/Monitor")); //Ensures any pages within this section require an account to be logged in
-
             //Services for External Application Authentication
             services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
             {
