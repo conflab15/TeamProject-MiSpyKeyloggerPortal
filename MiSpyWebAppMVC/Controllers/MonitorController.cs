@@ -32,5 +32,24 @@ namespace MiSpyWebAppMVC.Controllers
             int pageSize = 10;
             return View(await PaginatedList<LoggedEvent>.CreateAsync(events.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
+
+        //GET: Monitor/EventDetails/1
+        public async Task<IActionResult> EventDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var detailedEvent = await _context.LoggedEvent
+                .FirstOrDefaultAsync(e => e.Id == id);
+
+            if (detailedEvent == null)
+            {
+                return NotFound();
+            }
+
+            return View(detailedEvent);
+        }
     }
 }
