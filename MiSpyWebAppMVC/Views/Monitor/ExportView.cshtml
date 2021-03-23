@@ -1,0 +1,56 @@
+﻿@model MiSpyWebAppMVC.Models.LoggedEvent
+
+@{
+    ViewData["Title"] = "Event PDF";
+}
+
+<div class="row">
+    <div class="col-9">
+        <h1>MiSpy Keylogger Event</h1>
+    </div>
+    <div class="col-3">
+        <img src="~/images/MiSpy_Logo.png" width="50" height="50" alt="MiSpyLogo" />
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-9">
+        
+    </div>
+    <div class="col-3">
+        <p>Date of Export: @DateTime.Now.Date</p>
+    </div>
+</div>
+<br />
+
+<div>
+    <h4>Logged Event: </h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Event)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Event)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HasRead)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HasRead)
+        </dd>
+    </dl>
+</div>
+

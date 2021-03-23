@@ -51,7 +51,30 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    if (provider.Name == "Google")
+                                    {
+                                        <div class="col-md-4 mt-4">
+                                            <button type="submit" class="btn btn-xlarge btn-block btn-google shadow-sm" value="@provider.Name" title="Log in using your @provider.DisplayName account" name="provider">
+                                                <img src="~/images/socialslogo/google logo.svg" width="30" height="30" class="fab fa-google-plus fa-align-left social-icon" style="padding-right: 5px;">Google
+                                            </button>
+                                        </div>
+                                    }
+                                    else if (provider.Name == "Facebook")
+                                    {
+                                        <div class="col-md-4 mt-4">
+                                            <button type="submit" class="btn btn-xlarge btn-block btn-facebook" value="@provider.Name" title="Log in using your @provider.DisplayName account" name="provider">
+                                                <img src="~/images/socialslogo/facebook logo.png" width="30" height="30" class="fab fa-facebook fa-align-left social-icon" style="padding-right: 5px;">Facebook
+                                            </button>
+                                        </div>
+                                    }
+                                    else if (provider.Name == "Microsoft")
+                                    {
+                                        <div class="col-md-4 mt-4">
+                                            <button type="submit" class="btn btn-xlarge btn-block btn-microsoft" value="@provider.Name" title="Log in using your @provider.DisplayName account" name="provider">
+                                                <img src="~/images/socialslogo/microsoft logo.png" width="30" height="30" class="fab fa-microsoft fa-align-left social-icon" style="padding-right: 5px;">Microsoft
+                                            </button>
+                                        </div>
+                                    }
                                 }
                             </p>
                         </div>

@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using MiSpyWebAppMVC.Data;
 using MiSpyWebAppMVC.Models;
 
-
 namespace MiSpyWebAppMVC.Controllers
 {
     [Authorize] 
