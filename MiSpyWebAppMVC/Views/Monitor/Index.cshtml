@@ -2,6 +2,10 @@
 @{
     ViewData["Title"] = "Logged Events Report";
 }
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
 
 <div class="container row p-0 mt-5">
     <div class="col-10">
@@ -17,17 +21,36 @@
 
 @if (Model.Count > 0)
 {
+    <div class="row mb-3 pb-2">
+        <div class="col-8">
+            <form asp-action="Index">
+                <div class="input-group">
+                    <input name="searchBy" type="text" class="form-control" placeholder="Search Criteria" aria-label="searchBtn" aria-describedby="searchBtn" />
+                    <button class="btn btn-light" type="submit" id="searchBtn">Search</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-4">
+            <form asp-action="Index">
+                <div class="input-group">
+                    <input name="pageSize" type="number" class="form-control" placeholder="Page Size (Greater than 5)" aria-label="sizeBtn" aria-describedby="sizeBtn" />
+                    <button class="btn btn-light" type="submit" id="sizeBtn">Apply</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <table class="table table-striped ">
         <thead>
             <tr class="table-secondary">
                 <th id="tableHead">
-                    Event
+                    <a class="btn btn-outline-dark">Event</a>
                 </th>
                 <th id="tableHead">
-                    Time
+                    <a asp-route-sortBy="Time" class="btn btn-outline-dark">Time</a>
                 </th>
                 <th id="tableHead">
-                    Has Read?
+                    <a asp-route-sortBy="HasRead" class="btn btn-outline-dark">Has been read?</a>
                 </th>
             </tr>
         </thead>
@@ -48,6 +71,21 @@
             }
         </tbody>
     </table>
+
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @prevDisabled">
+        Previous
+    </a>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-pageNumber="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-default @nextDisabled">
+        Next
+    </a>
 }
 else
 {
@@ -58,22 +96,6 @@ else
     <br />
     <a class="btn btn-light" asp-controller="Home" asp-action="Download">Download</a>
 }
-@{ 
-    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-}
 
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex - 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @prevDisabled">
-    Previous
-</a>
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex + 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @nextDisabled">
-    Next
-</a>
+
+
