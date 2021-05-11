@@ -30,16 +30,17 @@ namespace MiSpyWebAppMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            //Services for External Application Authentication
-            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
-            {
-                microsoftOptions.ClientId = "032ac58a-5be4-4935-a7a2-be306f32f5be";
-                microsoftOptions.ClientSecret = "4UAiVN~I~gJt3_wzyP1amFp316ay~qZ93U";
-            })
+            //Services for External Application Authentication using client Id and Secrets
+            services.AddAuthentication()
+                .AddMicrosoftAccount(microsoftOptions =>
+                {
+                    microsoftOptions.ClientId = "032ac58a-5be4-4935-a7a2-be306f32f5be";
+                    microsoftOptions.ClientSecret = "4UAiVN~I~gJt3_wzyP1amFp316ay~qZ93U";
+                })
                .AddGoogle(googleOptions =>
                {
                    googleOptions.ClientId = "369181053611-4if4jmuqfh2ndec90ocopopn795kbqf2.apps.googleusercontent.com";
-                   googleOptions.ClientSecret = "7s0nc_BxDfmx3j3TJynHZB__";
+                   googleOptions.ClientSecret = "4ST3nD9zqfjy2qm2fJET9keA";
                })
                .AddFacebook(facebookOptions =>
                {
